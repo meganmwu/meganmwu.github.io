@@ -84,7 +84,7 @@ body {
 /* Two thumbnails per row with doubled spacing */
 .projects-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 80px; /* doubled from 40px */
 }
 
@@ -112,6 +112,16 @@ body {
 }
 
 /* Responsive design */
+@media (max-width: 1199px) {
+  .page-container {
+    padding: 30px 48px;
+  }
+
+  .projects-list {
+    gap: 48px;
+  }
+}
+
 @media (min-width: 1200px) {
   .page-container {
     max-width: 1200px;
@@ -119,12 +129,6 @@ body {
   }
 
   .projects-list {
-    grid-template-columns: 1fr;
     gap: 48px;
-    padding: 0 16px;
-  }
-
-  .project-card {
-    min-width: 400px;
   }
 }
