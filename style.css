@@ -1,0 +1,114 @@
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Loading screen */
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FCFCF9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#flower {
+  width: 80px;
+  height: 80px;
+  animation: spin 1s ease-out infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#loading-text {
+  margin-top: 48px;
+  font-size: 1.2rem;
+  color: #1a1a1a;
+}
+
+/* Background: updated to #FCFCF9 */
+body {
+  background-color: #FCFCF9;
+  color: #1a1a1a;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  line-height: 1.5;
+  padding-top: 100px;
+  padding-bottom: 200px;
+}
+
+/* Page container: margins 50% smaller */
+.page-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px; /* reduced from 60px */
+}
+
+/* Header */
+.site-header {
+  margin-bottom: 100px;
+}
+
+.site-title {
+  font-size: 2.0rem;
+  font-weight: 400;
+}
+
+.site-subtitle {
+  margin-top: 6px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Section title (smaller) */
+.section-title {
+  font-size: 1.0rem;
+  margin-bottom: 80px;
+  font-weight: 500;
+}
+
+/* Two thumbnails per row with doubled spacing */
+.projects-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px; /* doubled from 40px */
+}
+
+/* Project card */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-title {
+  font-size: 1.0rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Thumbnail: 8px radius, no fill, light grey border */
+.thumbnail {
+  width: 100%;
+  height: 300px;
+  background-color: #FFFFFF;
+  border: 1px solid #e3e3e3; /* light grey border */
+  border-radius: 8px;
+  box-shadow: none; /* removed previous shadow */
+}
+
+/*
