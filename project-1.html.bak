@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project One — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="page-container">
+    <header class="site-header">
+      <h1 class="site-title">Project One</h1>
+      <p class="site-subtitle">A brief description of the project</p>
+    </header>
+
+    <main class="projects-section">
+      <h2 class="section-title">Project Details</h2>
+
+      <p>This is a placeholder for project content.</p>
+    </main>
+  </div>
+</body>
+</html>

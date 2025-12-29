@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Megan — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="loading">
+    <img src="flower.png" alt="Spinning Flower" id="flower">
+    <p id="loading-text">booting up...</p>
+  </div>
+
+  <div class="page-container">
+    <header class="site-header">
+      <h1 class="site-title">Megan Wu</h1>
+      <p class="site-subtitle">Product Designer at Microsoft AI</p>
+    </header>
+
+    <main class="projects-section">
+
+      <div class="projects-list">
+        <a href="project-1.html" class="project-link">
+          <div class="project-card">
+            <div class="thumbnail"></div>
+            <h3 class="project-title">Project Title One</h3>
+          </div>
+        </a>
+
+        <div class="project-card">
+          <div class="thumbnail"></div>
+          <h3 class="project-title">Project Title Two</h3>
+        </div>
+
+        <div class="project-card">
+          <div class="thumbnail"></div>
+          <h3 class="project-title">Project Title Three</h3>
+        </div>
+
+        <div class="project-card">
+          <div class="thumbnail"></div>
+          <h3 class="project-title">Project Title Four</h3>
+        </div>
+
+        <div class="project-card">
+          <div class="thumbnail"></div>
+          <h3 class="project-title">Project Title Five</h3>
+        </div>
+
+        <div class="project-card">
+          <div class="thumbnail"></div>
+          <h3 class="project-title">Project Title Six</h3>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <p class="footer-text">🛠️ this site is currently being vibe-coded.</p>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('loading').style.display = 'none';
+    }, 1);
+  </script>
+</body>
+</html>
