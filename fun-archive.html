@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fun — Megan Wu</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="layout.css" />
+  <link rel="stylesheet" href="typography.css" />
+  <link rel="stylesheet" href="utilities.css" />
+  <link rel="stylesheet" href="components.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body class="fun">
+  <nav class="side-nav" aria-label="Main navigation">
+    <a class="side-link body-2" href="index.html">Megan Wu</a>
+    <a class="side-link body-2" href="projects.html">Work</a>
+    <a class="side-link body-2" href="about.html">About</a>
+    <a class="side-link body-2 active" href="fun.html">Fun</a>
+  </nav>
+
+  <div class="content-page-with-nav-offset fun-page-container">
+    <main class="content-section">
+      <h1 class="title-2">Fun</h1>
+      
+      <button id="pause-button" class="pause-button" title="Hold to pause and reveal">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.75 0C0.783502 0 0 0.783502 0 1.75V10.25C0 11.2165 0.783502 12 1.75 12H3.25C4.2165 12 5 11.2165 5 10.25V1.75C5 0.783502 4.2165 0 3.25 0H1.75ZM8.75 0C7.7835 0 7 0.783502 7 1.75V10.25C7 11.2165 7.7835 12 8.75 12H10.25C11.2165 12 12 11.2165 12 10.25V1.75C12 0.783502 11.2165 0 10.25 0H8.75Z" fill="#242424"/>
+        </svg>
+      </button>
+      
+      <div class="fun-images-container">
+        <img src="Assets/Images-fun/IMG_9537 1.png" alt="Fun moment 1" class="fun-image" data-index="0" data-original-src="Assets/Images-fun/IMG_9537 1.png">
+        <img src="Assets/Images-fun/IMG_9538-1.png" alt="Fun moment 2" class="fun-image" data-index="1" data-original-src="Assets/Images-fun/IMG_9538-1.png">
+        <img src="Assets/Images-fun/IMG_9538.png" alt="Fun moment 3" class="fun-image" data-index="2" data-original-src="Assets/Images-fun/IMG_9538.png">
+        <img src="Assets/Images-fun/IMG_9539.png" alt="Fun moment 4" class="fun-image" data-index="3" data-original-src="Assets/Images-fun/IMG_9539.png">
+        <img src="Assets/Images-fun/IMG_9574.png" alt="Fun moment 5" class="fun-image" data-index="4" data-original-src="Assets/Images-fun/IMG_9574.png">
+        <img src="Assets/Images-fun/IMG_9575.png" alt="Fun moment 6" class="fun-image" data-index="5" data-original-src="Assets/Images-fun/IMG_9575.png">
+        <img src="Assets/Images-fun/IMG_9590.png" alt="Fun moment 7" class="fun-image" data-index="6" data-original-src="Assets/Images-fun/IMG_9590.png">
+        <img src="Assets/Images-fun/Image (12) 1.png" alt="Fun moment 8" class="fun-image" data-index="7" data-original-src="Assets/Images-fun/Image (12) 1.png">
+        <img src="Assets/Images-fun/Image (13) 1.png" alt="Fun moment 9" class="fun-image" data-index="8" data-original-src="Assets/Images-fun/Image (13) 1.png">
+        <img src="Assets/Images-fun/Image (14).png" alt="Fun moment 10" class="fun-image" data-index="9" data-original-src="Assets/Images-fun/Image (14).png">
+        <img src="Assets/Images-fun/Image (15).png" alt="Fun moment 11" class="fun-image" data-index="10" data-original-src="Assets/Images-fun/Image (15).png">
+        <img src="Assets/Images-fun/Image (16).png" alt="Fun moment 12" class="fun-image" data-index="11" data-original-src="Assets/Images-fun/Image (16).png">
+        <img src="Assets/Images-fun/Image (3).png" alt="Fun moment 13" class="fun-image" data-index="12" data-original-src="Assets/Images-fun/Image (3).png">
+        <img src="Assets/Images-fun/Image (5).png" alt="Fun moment 14" class="fun-image" data-index="13" data-original-src="Assets/Images-fun/Image (5).png">
+        <img src="Assets/Images-fun/Image (6).png" alt="Fun moment 15" class="fun-image" data-index="14" data-original-src="Assets/Images-fun/Image (6).png">
+        <img src="Assets/Images-fun/image 23.png" alt="Fun moment 16" class="fun-image" data-index="15" data-original-src="Assets/Images-fun/image 23.png">
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.fun-image');
+    const container = document.querySelector('.fun-images-container');
+    const positions = [];
+    const velocities = [];
+    const spinTimeouts = [];
+    
+    // Drag state
+    let draggingIndex = null;
+    let dragOffsetX = 0;
+    let dragOffsetY = 0;
+    
+    // Pause state
+    let isPaused = false;
+    const pauseButton = document.getElementById('pause-button');
+
+    // Initialize positions and velocities for each image
+    images.forEach((img, index) => {
+      const x = Math.random() * (window.innerWidth - 230);
+      const y = Math.random() * (window.innerHeight - 230);
+      const vx = (Math.random() - 0.5) * 4;
+      const vy = (Math.random() - 0.5) * 4;
+      
+      positions[index] = { x, y };
+      velocities[index] = { vx, vy };
+      spinTimeouts[index] = null;
+      
+      img.style.position = 'fixed';
+      img.style.left = x + 'px';
+      img.style.top = y + 'px';
+      img.style.zIndex = Math.floor(Math.random() * 100);
+      img.style.cursor = 'grab';
+
+      // Add mousedown event for dragging
+      img.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        draggingIndex = index;
+        dragOffsetX = e.clientX - positions[index].x;
+        dragOffsetY = e.clientY - positions[index].y;
+        img.style.cursor = 'grabbing';
+        // Set high z-index while dragging
+        img.style.zIndex = 10000;
+      });
+
+      // Add click event listener for spinning
+      img.addEventListener('click', (e) => {
+        // Don't spin if we were dragging
+        if (draggingIndex !== null) return;
+        
+        e.stopPropagation();
+        
+        // Clear previous timeout if exists
+        if (spinTimeouts[index]) {
+          clearTimeout(spinTimeouts[index]);
+        }
+
+        // Apply intense spin animation
+        let spinDegrees = 0;
+        const spinStart = Date.now();
+        const spinDuration = 3000; // 3 seconds
+
+        function applySpin() {
+          const elapsed = Date.now() - spinStart;
+          if (elapsed < spinDuration) {
+            spinDegrees += 30;
+            img.style.transform = `rotate(${spinDegrees}deg)`;
+            spinTimeouts[index] = requestAnimationFrame(applySpin);
+          } else {
+            spinTimeouts[index] = null;
+          }
+        }
+
+        applySpin();
+      });
+    });
+
+    // Animation loop for bouncing
+    function animate() {
+      images.forEach((img, index) => {
+        // Skip physics if image is being dragged
+        if (draggingIndex === index) {
+          return;
+        }
+
+        positions[index].x += velocities[index].vx;
+        positions[index].y += velocities[index].vy;
+
+        // Bounce off walls
+        if (positions[index].x <= 0 || positions[index].x >= window.innerWidth - 230) {
+          velocities[index].vx *= -1;
+          positions[index].x = Math.max(0, Math.min(window.innerWidth - 230, positions[index].x));
+        }
+        if (positions[index].y <= 0 || positions[index].y >= window.innerHeight - 230) {
+          velocities[index].vy *= -1;
+          positions[index].y = Math.max(0, Math.min(window.innerHeight - 230, positions[index].y));
+        }
+
+        img.style.left = positions[index].x + 'px';
+        img.style.top = positions[index].y + 'px';
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Drag handlers
+    document.addEventListener('mousemove', (e) => {
+      if (draggingIndex !== null) {
+        // Update position based on mouse movement
+        positions[draggingIndex].x = e.clientX - dragOffsetX;
+        positions[draggingIndex].y = e.clientY - dragOffsetY;
+        
+        // Clamp to window bounds
+        positions[draggingIndex].x = Math.max(0, Math.min(window.innerWidth - 230, positions[draggingIndex].x));
+        positions[draggingIndex].y = Math.max(0, Math.min(window.innerHeight - 230, positions[draggingIndex].y));
+        
+        // Reset velocity while dragging
+        velocities[draggingIndex].vx = 0;
+        velocities[draggingIndex].vy = 0;
+        
+        images[draggingIndex].style.left = positions[draggingIndex].x + 'px';
+        images[draggingIndex].style.top = positions[draggingIndex].y + 'px';
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (draggingIndex !== null) {
+        images[draggingIndex].style.cursor = 'grab';
+        images[draggingIndex].style.zIndex = Math.floor(Math.random() * 100);
+        draggingIndex = null;
+      }
+    });
+    animate();
+
+    // Mouse interaction
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      images.forEach((img, index) => {
+        const imgCenterX = positions[index].x + 115; // half of 230
+        const imgCenterY = positions[index].y + 115;
+        const distX = imgCenterX - mouseX;
+        const distY = imgCenterY - mouseY;
+        const distance = Math.sqrt(distX * distX + distY * distY);
+
+        const minDistance = 150;
+
+        if (distance < minDistance) {
+          // Repel the image away from the mouse
+          const angle = Math.atan2(distY, distX);
+          const force = (minDistance - distance) / minDistance;
+          
+          velocities[index].vx += Math.cos(angle) * force * 3;
+          velocities[index].vy += Math.sin(angle) * force * 3;
+
+          // Speed limit
+          const speed = Math.sqrt(velocities[index].vx ** 2 + velocities[index].vy ** 2);
+          if (speed > 8) {
+            velocities[index].vx = (velocities[index].vx / speed) * 8;
+            velocities[index].vy = (velocities[index].vy / speed) * 8;
+          }
+
+          // Spin effect
+          img.style.transform = `rotate(${force * 360}deg)`;
+        } else {
+          img.style.transform = `rotate(${Math.random() * 10 - 5}deg)`;
+        }
+      });
+    });
+
+    // Special interaction for IMG_9574.png (index 4)
+    const specialImage = images[4];
+    let lastContactTime = 0;
+    let contactScale = 1;
+
+    document.addEventListener('mousemove', (e) => {
+      const imgCenterX = positions[4].x + 115;
+      const imgCenterY = positions[4].y + 115;
+      const distX = imgCenterX - e.clientX;
+      const distY = imgCenterY - e.clientY;
+      const distance = Math.sqrt(distX * distX + distY * distY);
+
+      // Check if cursor is touching the image (within 115px radius)
+      if (distance < 115) {
+        lastContactTime = Date.now();
+        
+        // Scale effect on contact
+        contactScale = 1.2;
+        
+        // Add a pulse/glow effect
+        specialImage.style.filter = `drop-shadow(0 0 20px rgba(255, 160, 165, 0.8)) brightness(1.2)`;
+        specialImage.style.transition = 'none';
+      } else {
+        // Gradually return to normal
+        const timeSinceContact = Date.now() - lastContactTime;
+        const returnDuration = 300;
+        
+        if (timeSinceContact < returnDuration) {
+          const progress = 1 - (timeSinceContact / returnDuration);
+          contactScale = 1 + (0.2 * progress);
+          specialImage.style.filter = `drop-shadow(0 0 ${20 * progress}px rgba(255, 160, 165, ${0.8 * progress})) brightness(${1 + (0.2 * progress)})`;
+        } else {
+          contactScale = 1;
+          specialImage.style.filter = 'none';
+        }
+        
+        specialImage.style.transition = 'transform 0.1s ease-out';
+      }
+      
+      // Apply scale
+      const currentRotation = specialImage.style.transform.match(/rotate\(([^)]+)deg\)/)?.[1] || 0;
+      specialImage.style.transform = `rotate(${currentRotation}deg) scale(${contactScale})`;
+    });
+
+    // Pause button handlers
+    pauseButton.addEventListener('mousedown', () => {
+      isPaused = true;
+      
+      // Freeze all images
+      images.forEach((img, index) => {
+        velocities[index].vx = 0;
+        velocities[index].vy = 0;
+        
+        // Change image to IMG_9577.png
+        img.src = 'Assets/Images-fun/IMG_9577.png';
+      });
+      
+      pauseButton.style.background = 'rgba(255, 255, 255, 0.3)';
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (isPaused) {
+        isPaused = false;
+        
+        // Restore all images to original
+        images.forEach((img, index) => {
+          img.src = img.dataset.originalSrc;
+          
+          // Restore velocity (give them a small random push)
+          velocities[index].vx = (Math.random() - 0.5) * 4;
+          velocities[index].vy = (Math.random() - 0.5) * 4;
+        });
+        
+        pauseButton.style.background = 'rgba(255, 255, 255, 0.1)';
+      }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      images.forEach((img, index) => {
+        positions[index].x = Math.max(0, Math.min(window.innerWidth - 230, positions[index].x));
+        positions[index].y = Math.max(0, Math.min(window.innerHeight - 230, positions[index].y));
+      });
+    });
+  </script>
+</body>
+</html>
