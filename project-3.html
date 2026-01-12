@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Three — Portfolio</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="layout.css" />
+  <link rel="stylesheet" href="typography.css" />
+  <link rel="stylesheet" href="utilities.css" />
+  <link rel="stylesheet" href="components.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body class="page-background-dark">
+  <div id="password-screen" class="password-screen">
+    <div class="password-container">
+      <h2 class="subtitle">Enter Password</h2>
+      <input type="password" id="password-input" class="password-input" placeholder="Password" />
+      <button id="password-submit" class="password-submit">Submit</button>
+      <p id="password-error" class="password-error"></p>
+    </div>
+  </div>
+
+  <nav class="project-nav" aria-label="Project navigation">
+    <a class="project-nav-link body-2" href="#" onclick="smartBack(); return false;"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="nav-arrow">
+<path d="M11.5 5.5C11.7761 5.5 12 5.27614 12 5C12 4.72386 11.7761 4.5 11.5 4.5L1.80298 4.5L5.83448 0.871651C6.03974 0.686921 6.05638 0.370777 5.87165 0.165522C5.68692 -0.039733 5.37077 -0.0563723 5.16552 0.128357L0.165518 4.62835C0.0601606 4.72317 6.19579e-09 4.85826 0 5C-6.19579e-09 5.14174 0.0601606 5.27683 0.165518 5.37165L5.16552 9.87164C5.37077 10.0564 5.68692 10.0397 5.87165 9.83448C6.05638 9.62922 6.03974 9.31308 5.83448 9.12835L1.80298 5.5L11.5 5.5Z" fill="white" fill-opacity="0.75"/>
+</svg>Back</a>
+    <a class="project-nav-link body-2" href="#overview">Overview</a>
+    <a class="project-nav-link body-2" href="#context">Context</a>
+    <a class="project-nav-link body-2" href="#goals">Goals</a>
+    <a class="project-nav-link body-2" href="#preliminary-research">Research</a>
+    <a class="project-nav-link body-2" href="#jamming">Kickoff jam</a>
+    <a class="project-nav-link body-2" href="#prototypes">Designs and usability test</a>
+    <a class="project-nav-link body-2" href="#final-designs">Final Designs</a>
+    <a class="project-nav-link body-2" href="#opportunities">Opportunities</a>
+  </nav>
+  <div class="work-projects-responsive">
+    <main class="project-content">
+      <section id="overview" class="overview-section">
+        <div class="overview-grid">
+          <div class="overview-column primary">
+            <div class="primary-content-section">
+              <h1 class="title-1" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 36px;">Bing Places for Business</h1>
+              <p class="body-1-light">We redesigned Bing Places for Business, the platform used to create and manage business listings in Bing.</p>
+            </div>
+            <div class="primary-content-section">
+              <img src="Assets/Images/Project 3/thumbnail.png" alt="Bing Places for Business" style="width: 100%; height: auto; border-radius: 8px;">
+            </div>
+          </div>
+          <div class="overview-column secondary">
+            <div class="about-project">
+              <h3 class="body-1-strong">Project type</h3>
+              <p class="body-2-light">End-to-end website redesign</p>
+            </div>
+            <div class="about-project">
+              <h3 class="body-1-strong">Skills</h3>
+              <p class="body-2-light">Responsive website redesign<br>Problem framing<br>Customer journey & pain point analysis<br>Prototyping<br>Visual refresh<br>Design system application</p>
+            </div>
+            <div class="about-project">
+              <h3 class="body-1-strong">Team</h3>
+              <p class="body-2-light">1 Product Manager<br>11 Engineers<br>2 Researchers<br>2 Product Designers</p>
+            </div>
+            <div class="about-project">
+              <h3 class="body-1-strong">Role</h3>
+              <p class="body-2-light">Product Designer</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr class="divider">
+      <section id="context" class="case-study-section">
+        <p class="section-tag" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 24px;">CONTEXT</p>
+        <h2 class="case-study-title title-1" style="margin-bottom: 80px;">The Bing Places for Business Portal needed a refresh.</h2>
+        <div class="problem-image-container">
+          <img src="Assets/Images/Project 3/original-site.png" alt="Original Bing Places for Business portal" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px;">
+          <p class="image-caption body-2-light" style="margin-bottom: 80px;">This was the Bing Places for Business portal in 2024. It's where business owners create and manage business listings that appear on Bing search engine and maps results.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px;">
+          <div>
+            <h3 class="body-1-strong" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 24px;">Problem</h3>
+            <p class="body-2-light" style="color: var(--foreground-content-secondary-on-dark);">Business owners don't see the value in connecting with Bing Local Search users. Additionally, the current site was outdated, difficult to use, and impersonal.</p>
+          </div>
+          <div>
+            <h3 class="body-1-strong" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 24px;">Opportunity</h3>
+            <p class="body-2-light" style="color: var(--foreground-content-secondary-on-dark);">Offer an effortless platform that helps small business owners see the value of placing their listing on Bing, understand listing trends, and optimize them to attract new online customers.</p>
+          </div>
+        </div>
+      </section>
+      <hr class="divider">
+      <section id="goals" class="case-study-section">
+        <p class="section-tag" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 48px;">GOALS</p>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px;">
+          <div>
+            <h2 class="body-1" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 36px;">Customer goals</h2>
+            <ul style="list-style: disc; padding-left: 20px; color: var(--foreground-content-secondary-on-dark);">
+              <li class="body-2-light" style="color: var(--foreground-content-secondary-on-dark); margin-bottom: 16px;">Easily view and understand the performance of their listing(s)</li>
+              <li class="body-2-light" style="color: var(--foreground-content-secondary-on-dark); margin-bottom: 16px;">Seamlessly enhance and curate listings across various platforms</li>
+              <li class="body-2-light" style="color: var(--foreground-content-secondary-on-dark); margin-bottom: 16px;">Gain more online leads</li>
+              <li class="body-2-light" style="color: var(--foreground-content-secondary-on-dark);">Increase sales by increasing business awareness</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="body-1" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 36px;">Business goals</h2>
+            <ul style="list-style: disc; padding-left: 20px; color: var(--foreground-content-secondary-on-dark);">
+              <li class="body-2-light" style="color: var(--foreground-content-secondary-on-dark); margin-bottom: 16px;">Improve adoption and usability</li>
+              <li class="body-2-light" style="color: var(--foreground-content-secondary-on-dark); margin-bottom: 16px;">Increase no. of users from 2.5 to 10 million</li>
+              <li class="body-2-light" style="color: var(--foreground-content-secondary-on-dark);">Upsell MSFT Ads, Clarity, and Webmaster tools</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <hr class="divider">
+      <section id="preliminary-research" class="case-study-section">
+        <p class="section-tag" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 24px;">PRELIMINARY RESEARCH</p>
+        <p class="case-study-text" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 80px;">We needed to understand the current pain points to inform what to prioritize in the platform redesign.</p>
+        
+        <p class="section-tag" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 24px;">THEMES IN OPPORTUNITIES</p>
+        <p class="case-study-text" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 8px;">1 /  Modernize and build trust</p>
+        <p class="case-study-text" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 8px;">2 /  Guide small business owners toward success</p>
+        <p class="case-study-text" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 80px;">3 /  Reduce friction</p>
+        
+        <div class="table-scroll" style="background-color: rgba(255, 255, 255, 0.05); border-radius: var(--number-4); padding: 20px; overflow-x: auto; max-height: 600px; overflow-y: auto;">
+          <table style="width: 100%; border-collapse: collapse; color: var(--foreground-content-primary-on-dark);">
+            <thead>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.2);">
+                <th class="body-2-light" style="text-align: left; padding: 12px; font-weight: 600;">Pain points</th>
+                <th class="body-2-light" style="text-align: left; padding: 12px; font-weight: 600;">Opportunities</th>
+                <th class="body-2-light" style="text-align: left; padding: 12px; font-weight: 600;">Priority</th>
+                <th class="body-2-light" style="text-align: left; padding: 12px; font-weight: 600;">In scope?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Outdated look and feel leads to distrust</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Modernize design</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">1</td>
+                <td class="body-2" style="padding: 12px; color: var(--foreground-content-primary-on-dark);">✅</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Struggle with optimized listings, online presence management</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Provide personalized tips and recommendations</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">1</td>
+                <td class="body-2" style="padding: 12px; color: var(--foreground-content-primary-on-dark);">✅</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Google sync functionality is good but inconsistent, fails occasionally</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Fix GMB sync issues and make syncing with Google an effortless experience</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">1</td>
+                <td class="body-2" style="padding: 12px; color: var(--foreground-content-primary-on-dark);">✅</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Poor onboarding process in Bing</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Make the onboarding easy with reduced steps</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">1</td>
+                <td class="body-2" style="padding: 12px; color: var(--foreground-content-primary-on-dark);">✅</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Need help in translating data into improvement actions</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Add better insights within analytics that help SMBs take next steps to grow their business</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">1</td>
+                <td class="body-2" style="padding: 12px; color: var(--foreground-content-primary-on-dark);">✅</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Lack of rich data options on Bing listings — reviews, before/after photos, detailed service areas, posts, offers</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Integrate more features and promote current features on Bing and Bing Places</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">1</td>
+                <td class="body-2" style="padding: 12px; color: var(--foreground-content-primary-on-dark);"></td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Measuring the performance of listings and ads is difficult, and to understand what to do next so it manually or consider hiring an expert</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Improved insights and analytics translating data into action</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">2</td>
+                <td class="body-2" style="padding: 12px; color: var(--foreground-content-primary-on-dark);">✅</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">SMBs are multitasking with limited budget and time, less the brand power</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Guided experience that supports SMBs with personalization</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">2</td>
+                <td class="body-2" style="padding: 12px; color: var(--foreground-content-primary-on-dark);">✅</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Need to improve search result rankings, tips and guidance about how to optimize</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Tighter integration with Microsoft Webmaster</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">2</td>
+                <td class="body-2" style="padding: 12px; color: var(--foreground-content-primary-on-dark);">✅</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Bing and Bing Places are not a priority for SMBs</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Showcase Bing benefits on homepage and via analytics</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">2</td>
+                <td class="body-2" style="padding: 12px; color: var(--foreground-content-primary-on-dark);">✅</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Lack of notifications for business owners to claim business and add details</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Mailers for identified business owners to claim business in Bing Places</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">2</td>
+                <td class="body-2" style="padding: 12px; color: var(--foreground-content-primary-on-dark);">✅</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Need more FAQs and tutorials for quick onboarding</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Update FAQs/tutorial videos</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">2</td>
+                <td class="body-2" style="padding: 12px; color: var(--foreground-content-primary-on-dark);"></td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Help SMBs grow with special advertising credits, help them learn optimal ad growth</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">SMB-specific advertising discounts and offer information</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">2</td>
+                <td class="body-2" style="padding: 12px; color: var(--foreground-content-primary-on-dark);">✅</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">SMBs are asking for AI-based insights from analytics and for listing optimization</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">AI/Copilot integration to help</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">2</td>
+                <td class="body-2" style="padding: 12px; color: var(--foreground-content-primary-on-dark);"></td>
+              </tr>
+              <tr>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">Lack of support and results</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">AI/Copilot integration</td>
+                <td class="body-2-light" style="padding: 12px; color: var(--foreground-content-secondary-on-dark);">3</td>
+                <td class="body-2" style="padding: 12px; color: var(--foreground-content-primary-on-dark);"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <hr class="divider">
+      <section id="jamming" class="case-study-section">
+        <p class="section-tag" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 48px;">JAMMING WITH THE PRODUCT TEAM</p>
+        <p class="case-study-text" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 48px;">Early stakeholder involvement gave us quick alignment and the right perspectives to shape user needs and solutions.</p>
+        
+        <div class="carousel-container" style="position: relative; width: 100%; margin-bottom: 48px; padding-bottom: 64px; min-height: 560px;">
+          <div class="carousel-slides" style="display: flex; overflow: visible; border-radius: 8px;">
+            <div class="carousel-slide" style="flex: 0 0 100%; display: none;">
+              <img src="Assets/Images/Project 3/figjam-1.png" alt="FigJam - I want to" class="card-corner" style="width: 100%; height: 400px; object-fit: cover; display: block;">
+              <p class="section-header" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 8px; margin-top: 12px;">I want to ... [motivation] so that I can ... [desired outcome]</p>
+              <p class="image-caption body-2-light">Stakeholders involved: Designers, Product Manager, Researcher, Data Scientist, Engineers, UX Writer.</p>
+            </div>
+            <div class="carousel-slide" style="flex: 0 0 100%; display: block;">
+              <img src="Assets/Images/Project 3/figjam-2.png" alt="FigJam - How might we" class="card-corner" style="width: 100%; height: 400px; object-fit: cover; display: block;">
+              <p class="section-header" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 8px; margin-top: 12px;">How might we offer value to business owners?</p>
+              <p class="image-caption body-2-light">Stakeholders involved: Designers, Product Manager, Researcher, Data Scientist, Engineers, UX Writer.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-controls" style="position: absolute; left: 0; right: 0; bottom: 0;">
+            <button class="carousel-button carousel-prev" aria-label="Previous slide">
+              <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 1L1 6L9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="carousel-dots" id="jammingCarouselDots">
+              <button class="carousel-dot active" data-index="0" aria-label="Go to slide 1"></button>
+              <button class="carousel-dot" data-index="1" aria-label="Go to slide 2"></button>
+            </div>
+            <button class="carousel-button carousel-next" aria-label="Next slide">
+              <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L9 6L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <script>
+        const jammingCarouselContainer = document.querySelector('#jammingCarouselDots').closest('.carousel-container');
+        const jammingCarousel = {
+          currentSlide: 1,
+          slides: jammingCarouselContainer.querySelectorAll('.carousel-slide'),
+          dots: jammingCarouselContainer.querySelectorAll('.carousel-dot'),
+          prevBtn: jammingCarouselContainer.querySelector('.carousel-prev'),
+          nextBtn: jammingCarouselContainer.querySelector('.carousel-next'),
+          
+          init() {
+            this.slides = Array.from(this.slides);
+            this.prevBtn.addEventListener('click', () => this.prevSlide());
+            this.nextBtn.addEventListener('click', () => this.nextSlide());
+            this.dots.forEach((dot, index) => {
+              dot.addEventListener('click', () => this.goToSlide(index));
+            });
+            this.computeAndSetMinHeight();
+            window.addEventListener('resize', () => this.computeAndSetMinHeight());
+          },
+          
+          showSlide(n) {
+            this.slides.forEach(slide => slide.style.display = 'none');
+            this.dots.forEach(dot => dot.classList.remove('active'));
+            
+            this.slides[n].style.display = 'block';
+            this.dots[n].classList.add('active');
+          },
+          
+          nextSlide() {
+            this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+            this.showSlide(this.currentSlide);
+          },
+          
+          prevSlide() {
+            this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+            this.showSlide(this.currentSlide);
+          },
+          
+          goToSlide(n) {
+            this.currentSlide = n;
+            this.showSlide(this.currentSlide);
+          },
+          
+          computeAndSetMinHeight() {
+            let maxHeight = 0;
+            this.slides.forEach(slide => {
+              const prevDisplay = slide.style.display;
+              if (prevDisplay === 'none') slide.style.display = 'block';
+              const h = slide.offsetHeight;
+              if (prevDisplay === 'none') slide.style.display = prevDisplay;
+              if (h > maxHeight) maxHeight = h;
+            });
+            jammingCarouselContainer.style.minHeight = (maxHeight + 64) + 'px';
+          }
+        };
+        
+        jammingCarousel.init();
+      </script>
+      <hr class="divider">
+      <section id="prototypes" class="case-study-section">
+        <p class="section-tag" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 24px;">MANAGEMENT PORTAL: DESIGNS AND USABILITY TESTS</p>
+        <p class="case-study-text" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 80px;">The listing management portal is where the bulk of the UX complexity lies, and where we have the greatest opportunity to guide users with tips and recommendations that reduce friction their listing management. We wanted to understand which layout performed best and whether the new features effectively addressed their pain points.</p>
+        
+        <img src="Assets/Images/Project 3/dashboard-prototype-a.gif" alt="Prototype A - Dashboard" class="card-corner" style="width: 100%; height: auto;">
+        <p class="section-header" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 8px; margin-top: 8px;">Prototype A.</p>
+        <p class="image-caption body-2-light" style="margin-bottom: 80px;">Presents listing details and analytics upfront, creating a more information-dense view that let users see key details immediately</p>
+        
+        <img src="Assets/Images/Project 3/dashboard-prototype-b.gif" alt="Prototype B - Dashboard" class="card-corner" style="width: 100%; height: auto;">
+        <p class="section-header" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 8px; margin-top: 8px;">Prototype B.</p>
+        <p class="image-caption body-2-light" style="margin-bottom: 80px;">Intentionally surfaces less information, emphasizing actionable and recommended items to give users a quick, gainable overview while guiding their attention toward next steps.</p>
+        
+        <p class="section-tag" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 48px;">FINDINGS</p>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px;">
+          <div>
+            <h3 class="body-1-strong" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 16px;">67% of participants preferred A over B</h3>
+            <p class="body-2-light" style="color: var(--foreground-content-secondary-on-dark);">They liked that they could see everything at a glance and fewer clicks are required - it "feels more efficient". Participants valued seeing the analytics clearly on the initial screen.</p>
+          </div>
+          <div>
+            <h3 class="body-1-strong" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 16px;">Participants like having personalized insights</h3>
+            <p class="body-2-light" style="color: var(--foreground-content-secondary-on-dark);">All participants loved the analytics & valued the contextual tips to help improve their listing</p>
+          </div>
+          <div>
+            <h3 class="body-1-strong" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 16px;">The listing edit flow was intuitive</h3>
+            <p class="body-2-light" style="color: var(--foreground-content-secondary-on-dark);">None of the participants had issues editing. All understood & welcomed AI assistance</p>
+          </div>
+          <div>
+            <h3 class="body-1-strong" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 16px;">Desire to personalize listings</h3>
+            <p class="body-2-light" style="color: var(--foreground-content-secondary-on-dark);">Participants wanted the ability to include more details, especially unique attributes of their business</p>
+          </div>
+        </div>
+      </section>
+      <hr class="divider">
+      <section id="final-designs" class="case-study-section">
+        <h2 class="case-study-title title-1">Final Designs</h2>
+        
+        <p class="section-tag" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 48px;">HOMEPAGE</p>
+        <img src="Assets/Images/Project 3/homepage.gif" alt="Homepage" class="card-corner" style="width: 100%; height: auto; margin-bottom: 24px;">
+        <h3 class="body-1" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 16px;">Address goals and real needs, not product features.</h3>
+        <p class="image-caption body-2-light">The homepage needed to clearly communicate the value of listing a business on Bing. We focused on highlighting audience reach, the tools available to help business owners expand their visibility, and the insights that help them understand performance.</p>
+      </section>
+      
+      <section class="case-study-section" style="margin-top: 0;">
+        <p class="section-tag" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 48px;">SIMPLIFIED ONBOARDING</p>
+        
+        <div class="carousel-container" style="position: relative; width: 100%; margin-bottom: 48px; padding-bottom: 64px; min-height: 560px;">
+          <div class="carousel-slides" style="display: flex; overflow: visible; border-radius: 8px;">
+            <div class="carousel-slide" style="flex: 0 0 100%; display: block;">
+              <img src="Assets/Images/Project 3/onboarding-claim-listing.gif" alt="Claim Listing" class="card-corner" style="width: 100%; height: 400px; object-fit: cover; display: block;">
+              <p class="section-header" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 8px; margin-top: 12px;">Shift non-essential fields to post-onboarding.</p>
+              <div class="caption-stack" style="display: grid; row-gap: 4px;">
+                <p class="image-caption body-2-light">We cut the onboarding process from 24 steps to 7. This streamlined flow reduces friction at a critical point in the funnel and helps users reach the portal faster, with less cognitive load.</p>
+                <p class="image-caption body-2-light">5 out of 5 participants rated the onboarding paths 5 (very easy).</p>
+                <p class="image-caption body-2-light">“Streamlined” • ”Quick and easy” • ”Very user-friendly”</p>
+              </div>
+            </div>
+            <div class="carousel-slide" style="flex: 0 0 100%; display: none;">
+              <img src="Assets/Images/Project 3/onboarding-google-import.gif" alt="Google Import" class="card-corner" style="width: 100%; height: 400px; object-fit: cover; display: block;">
+              <p class="section-header" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 8px; margin-top: 12px;">Make it as easy as possible to sync with Google.</p>
+              <div class="caption-stack" style="display: grid; row-gap: 4px;">
+                <p class="image-caption body-2-light">4 out of 5 participants preferred importing their listings from Google. We reduced friction in that import flow to make the process faster and more reliable.</p>
+                <p class="image-caption body-2-light">"Easier and faster" • "More convenient"</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="carousel-controls" style="position: absolute; left: 0; right: 0; bottom: 0;">
+            <button class="carousel-button carousel-prev-onboarding" aria-label="Previous slide">
+              <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 1L1 6L9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="carousel-dots" id="onboardingCarouselDots">
+              <button class="carousel-dot active" data-index="0" aria-label="Go to slide 1"></button>
+              <button class="carousel-dot" data-index="1" aria-label="Go to slide 2"></button>
+            </div>
+            <button class="carousel-button carousel-next-onboarding" aria-label="Next slide">
+              <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L9 6L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <script>
+          const onboardingCarouselContainer = document.querySelector('#onboardingCarouselDots').closest('.carousel-container');
+          const onboardingCarousel = {
+            currentSlide: 0,
+            slides: onboardingCarouselContainer.querySelectorAll('.carousel-slide'),
+            dots: onboardingCarouselContainer.querySelectorAll('.carousel-dot'),
+            prevBtn: onboardingCarouselContainer.querySelector('.carousel-prev-onboarding'),
+            nextBtn: onboardingCarouselContainer.querySelector('.carousel-next-onboarding'),
+            
+            init() {
+              this.slides = Array.from(this.slides);
+              this.prevBtn.addEventListener('click', () => this.prevSlide());
+              this.nextBtn.addEventListener('click', () => this.nextSlide());
+              this.dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => this.goToSlide(index));
+              });
+              this.computeAndSetMinHeight();
+              window.addEventListener('resize', () => this.computeAndSetMinHeight());
+            },
+            
+            showSlide(n) {
+              this.slides.forEach(slide => slide.style.display = 'none');
+              this.dots.forEach(dot => dot.classList.remove('active'));
+              
+              this.slides[n].style.display = 'block';
+              this.dots[n].classList.add('active');
+            },
+            
+            nextSlide() {
+              this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+              this.showSlide(this.currentSlide);
+            },
+            
+            prevSlide() {
+              this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+              this.showSlide(this.currentSlide);
+            },
+            
+            goToSlide(n) {
+              this.currentSlide = n;
+              this.showSlide(this.currentSlide);
+            },
+            
+            computeAndSetMinHeight() {
+              let maxHeight = 0;
+              this.slides.forEach(slide => {
+                const prevDisplay = slide.style.display;
+                if (prevDisplay === 'none') slide.style.display = 'block';
+                const h = slide.offsetHeight;
+                if (prevDisplay === 'none') slide.style.display = prevDisplay;
+                if (h > maxHeight) maxHeight = h;
+              });
+              onboardingCarouselContainer.style.minHeight = (maxHeight + 64) + 'px';
+            }
+          };
+          
+          onboardingCarousel.init();
+        </script>
+      </section>
+      
+      <section class="case-study-section" style="margin-top: 0;">
+        <p class="section-tag" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 48px;">MANAGEMENT PORTAL</p>
+        
+        <div class="carousel-container" style="position: relative; width: 100%; margin-bottom: 48px; padding-bottom: 64px; min-height: 560px;">
+          <div class="carousel-slides" style="display: flex; overflow: visible; border-radius: 8px;">
+            <div class="carousel-slide" style="flex: 0 0 100%; display: block;">
+              <img src="Assets/Images/Project 3/dashboard-home.gif" alt="Dashboard Home" class="card-corner" style="width: 100%; height: 400px; object-fit: cover; display: block;">
+              <p class="section-header" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 8px; margin-top: 12px;">Surface listing details and analytics upfront.</p>
+              <div class="caption-stack" style="display: grid; row-gap: 4px;">
+                <p class="image-caption body-2-light">Based on the initial user study, we chose a dashboard layout that gave users an immediate view of their business and performance, while still allowing them to quickly dive into the edit view and deeper analytics when needed.</p>
+                <p class="image-caption body-2-light">3 out of 5 participants preferred this dashboard over Google Business Profile.</p>
+                <p class="image-caption body-2-light">"Intuitive, straightforward" • "Cleaner, less cluttered" • "More comprehensive" • "More professional, but bland"</p>
+              </div>
+            </div>
+            <div class="carousel-slide" style="flex: 0 0 100%; display: none;">
+              <img src="Assets/Images/Project 3/action-bar.gif" alt="Action Bar" class="card-corner" style="width: 100%; height: 400px; object-fit: cover; display: block;">
+              <p class="section-header" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 8px; margin-top: 12px;">Provide a prominent, predictable place for actionable recommendations.</p>
+              <p class="image-caption body-2-light">An action bar created a consistent place to surface listing-specific recommendations for guidance on how to improve their listings and drive traffic. It also provided a natural spot to introduce other Microsoft tools that can help small business owners strengthen and grow their business, such as the Ads Platform and Microsoft Clarity for website analytics.</p>
+            </div>
+            <div class="carousel-slide" style="flex: 0 0 100%; display: none;">
+              <img src="Assets/Images/Project 3/edit-description.png" alt="Edit Description" class="card-corner" style="width: 100%; height: 400px; object-fit: cover; display: block;">
+              <p class="section-header" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 8px; margin-top: 12px;">Provide contextual tools and recommendations to optimize their listing.</p>
+              <p class="image-caption body-2-light">We needed to make it easy for business owners to understand how to improve their listing. The business description section lets users leverage Copilot to craft a strong, effective description, while also giving them feedback on its quality and completeness.</p>
+            </div>
+            <div class="carousel-slide" style="flex: 0 0 100%; display: none;">
+              <img src="Assets/Images/Project 3/multi-listing.png" alt="Multi-listing Page" class="card-corner" style="width: 100%; height: 400px; object-fit: cover; display: block;">
+              <p class="section-header" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 8px; margin-top: 12px;">Multi-listing page.</p>
+              <p class="image-caption body-2-light">For accounts with multiple listings, which includes chain and listing management companies, the multi-listing page allows users to sort and search their listings while surfacing the major recommendations for that listing.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-controls" style="position: absolute; left: 0; right: 0; bottom: 0;">
+            <button class="carousel-button carousel-prev-management" aria-label="Previous slide">
+              <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 1L1 6L9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="carousel-dots" id="managementCarouselDots">
+              <button class="carousel-dot active" data-index="0" aria-label="Go to slide 1"></button>
+              <button class="carousel-dot" data-index="1" aria-label="Go to slide 2"></button>
+              <button class="carousel-dot" data-index="2" aria-label="Go to slide 3"></button>
+              <button class="carousel-dot" data-index="3" aria-label="Go to slide 4"></button>
+            </div>
+            <button class="carousel-button carousel-next-management" aria-label="Next slide">
+              <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L9 6L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <script>
+          const managementCarouselContainer = document.querySelector('#managementCarouselDots').closest('.carousel-container');
+          const managementCarousel = {
+            currentSlide: 0,
+            slides: managementCarouselContainer.querySelectorAll('.carousel-slide'),
+            dots: managementCarouselContainer.querySelectorAll('.carousel-dot'),
+            prevBtn: managementCarouselContainer.querySelector('.carousel-prev-management'),
+            nextBtn: managementCarouselContainer.querySelector('.carousel-next-management'),
+            
+            init() {
+              this.slides = Array.from(this.slides);
+              this.prevBtn.addEventListener('click', () => this.prevSlide());
+              this.nextBtn.addEventListener('click', () => this.nextSlide());
+              this.dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => this.goToSlide(index));
+              });
+              this.computeAndSetMinHeight();
+              window.addEventListener('resize', () => this.computeAndSetMinHeight());
+            },
+            
+            showSlide(n) {
+              this.slides.forEach(slide => slide.style.display = 'none');
+              this.dots.forEach(dot => dot.classList.remove('active'));
+              
+              this.slides[n].style.display = 'block';
+              this.dots[n].classList.add('active');
+            },
+            
+            nextSlide() {
+              this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+              this.showSlide(this.currentSlide);
+            },
+            
+            prevSlide() {
+              this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+              this.showSlide(this.currentSlide);
+            },
+            
+            goToSlide(n) {
+              this.currentSlide = n;
+              this.showSlide(this.currentSlide);
+            },
+            
+            computeAndSetMinHeight() {
+              let maxHeight = 0;
+              this.slides.forEach(slide => {
+                const prevDisplay = slide.style.display;
+                if (prevDisplay === 'none') slide.style.display = 'block';
+                const h = slide.offsetHeight;
+                if (prevDisplay === 'none') slide.style.display = prevDisplay;
+                if (h > maxHeight) maxHeight = h;
+              });
+              managementCarouselContainer.style.minHeight = (maxHeight + 64) + 'px';
+            }
+          };
+          
+          managementCarousel.init();
+        </script>
+      </section>
+      </section>
+      <hr class="divider">
+      <section id="opportunities" class="case-study-section">
+        <h2 class="case-study-title title-1">Opportunities</h2>
+        <p class="body-2-light" style="color: var(--foreground-content-secondary-on-dark); margin-bottom: 48px;">Opportunities to improve Bing Places for Business, post MVP.</p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 48px;">
+          <div>
+            <h3 class="body-1" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 16px;">Boost product awareness</h3>
+            <p class="body-2-light" style="color: var(--foreground-content-secondary-on-dark);">4 out of 5 usability participants were not aware of Bing Places for Business before study, and the initial research had also pointed to lack of product awareness. There are opportunities to emphasize claiming or managing a listing by proactively notifying business owners to claim their businesses.</p>
+          </div>
+          <div>
+            <h3 class="body-1" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 16px;">Provide opportunities for personalization</h3>
+            <p class="body-2-light" style="color: var(--foreground-content-secondary-on-dark);">In the initial user research, business owners expressed a desire to more accurately represent their businesses and brand through rich data like highlighted reviews, before/after photos, special posts, and more.</p>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="body-1" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 16px;">AI/Copilot integration</h3>
+          <p class="body-2-light" style="color: var(--foreground-content-secondary-on-dark);">AI creates opportunities for even more personalized support and listing enhancement. It could surface insights based on similar businesses, highlight relevant target audiences, and offer tools that help owners generate tailored posts and content.</p>
+        </div>
+      </section>
+      <div class="next-project-container">
+        <a class="next-project-link body-2" href="project-1.html">Next project<svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="nav-arrow">
+<path d="M0.5 4.50001C0.223858 4.50001 -1.20706e-08 4.72386 0 5.00001C1.20706e-08 5.27615 0.223858 5.50001 0.5 5.50001L10.197 5.5L6.16552 9.12836C5.96026 9.31309 5.94362 9.62923 6.12835 9.83449C6.31308 10.0397 6.62923 10.0564 6.83448 9.87165L11.8345 5.37165C11.9398 5.27683 12 5.14175 12 5C12 4.85826 11.9398 4.72318 11.8345 4.62836L6.83448 0.128357C6.62923 -0.0563721 6.31308 -0.0397334 6.12835 0.165522C5.94362 0.370777 5.96026 0.686922 6.16552 0.871651L10.197 4.5L0.5 4.50001Z" fill="white" fill-opacity="0.4"/>
+</svg></a>
+      </div>
+    </main>
+  </div>
+  <script>
+    const navLinks = document.querySelectorAll('.project-nav a[href^="#"]');
+    
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Remove active class from all links
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+          });
+          
+          // Add active class to the matching link
+          const activeLink = document.querySelector(`.project-nav a[href="#${entry.target.id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      });
+    }, { threshold: 0.3 });
+
+    // Observe all elements with IDs
+    document.querySelectorAll('[id]').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Smart back button - skip anchor links on the same page
+    function smartBack() {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      let canGoBack = false;
+      
+      // Try going back through history until we find a different page
+      for (let i = 1; i < window.history.length; i++) {
+        history.back();
+        const newPage = window.location.pathname.split('/').pop() || 'index.html';
+        if (newPage !== currentPage) {
+          canGoBack = true;
+          break;
+        }
+      }
+      
+      // If we couldn't find a different page, just go back once
+      if (!canGoBack) {
+        history.back();
+      }
+    }
+
+    // Password protection for project-3
+    const correctPassword = 'oranges';
+    const passwordScreen = document.getElementById('password-screen');
+    const passwordInput = document.getElementById('password-input');
+    const passwordSubmit = document.getElementById('password-submit');
+    const passwordError = document.getElementById('password-error');
+
+    function handlePasswordSubmit() {
+      const enteredPassword = passwordInput.value;
+      if (enteredPassword === correctPassword) {
+        passwordScreen.classList.add('hidden');
+        sessionStorage.setItem('project3Unlocked', 'true');
+      } else {
+        passwordError.textContent = 'Incorrect password. Try again.';
+        passwordInput.value = '';
+      }
+    }
+
+    // Check if already unlocked in this session
+    if (sessionStorage.getItem('project3Unlocked') === 'true') {
+      passwordScreen.classList.add('hidden');
+    }
+
+    passwordSubmit.addEventListener('click', handlePasswordSubmit);
+    passwordInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        handlePasswordSubmit();
+      }
+    });
+  </script>
+</body>
+</html>

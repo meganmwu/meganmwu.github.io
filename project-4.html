@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Four — Portfolio</title>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="layout.css" />
+  <link rel="stylesheet" href="typography.css" />
+  <link rel="stylesheet" href="utilities.css" />
+  <link rel="stylesheet" href="components.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body class="page-background-dark">
+  <div id="password-screen" class="password-screen">
+    <div class="password-container">
+      <h2 class="subtitle">Enter Password</h2>
+      <input type="password" id="password-input" class="password-input" placeholder="Password" />
+      <button id="password-submit" class="password-submit">Submit</button>
+      <p id="password-error" class="password-error"></p>
+    </div>
+  </div>
+
+  <nav class="project-nav" aria-label="Project navigation">
+    <a class="project-nav-link body-2" href="#" onclick="smartBack(); return false;"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="nav-arrow">
+<path d="M11.5 5.5C11.7761 5.5 12 5.27614 12 5C12 4.72386 11.7761 4.5 11.5 4.5L1.80298 4.5L5.83448 0.871651C6.03974 0.686921 6.05638 0.370777 5.87165 0.165522C5.68692 -0.039733 5.37077 -0.0563723 5.16552 0.128357L0.165518 4.62835C0.0601606 4.72317 6.19579e-09 4.85826 0 5C-6.19579e-09 5.14174 0.0601606 5.27683 0.165518 5.37165L5.16552 9.87164C5.37077 10.0564 5.68692 10.0397 5.87165 9.83448C6.05638 9.62922 6.03974 9.31308 5.83448 9.12835L1.80298 5.5L11.5 5.5Z" fill="white" fill-opacity="0.75"/>
+</svg>Back</a>
+  </nav>
+
+  <div class="work-projects-responsive">
+    <main class="project-content">
+      <section class="overview-section">
+        <div class="overview-grid">
+          <div class="overview-column primary">
+            <div class="primary-content-section">
+              <h1 class="title-1" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 36px;">Redirecting to Figma prototype...</h1>
+              <p class="body-1-light">If you are not automatically redirected, <a href="https://www.figma.com/proto/ipDfpexcZjTvfDnzYnk7vb/02_Portfolio_Alliance-Bernstein-Case-Study?node-id=3-101&starting-point-node-id=3%3A101" target="_blank" style="text-decoration: underline; color: var(--foreground-content-primary-on-dark);">click here</a>.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Smart back navigation
+    function smartBack() {
+      if (window.history.length > 1 && document.referrer.includes(window.location.hostname)) {
+        window.history.back();
+      } else {
+        window.location.href = 'projects.html';
+      }
+    }
+
+    // Password protection for project-4
+    const correctPassword = 'oranges';
+    const passwordScreen = document.getElementById('password-screen');
+    const passwordInput = document.getElementById('password-input');
+    const passwordSubmit = document.getElementById('password-submit');
+    const passwordError = document.getElementById('password-error');
+    const figmaURL = 'https://www.figma.com/proto/ipDfpexcZjTvfDnzYnk7vb/02_Portfolio_Alliance-Bernstein-Case-Study?node-id=3-101&starting-point-node-id=3%3A101';
+
+    function handlePasswordSubmit() {
+      const enteredPassword = passwordInput.value;
+      if (enteredPassword === correctPassword) {
+        passwordScreen.classList.add('hidden');
+        sessionStorage.setItem('project4Unlocked', 'true');
+        // Redirect to Figma prototype in a new tab
+        window.open(figmaURL, '_blank');
+        // Optionally redirect the current tab back to projects
+        setTimeout(() => {
+          window.location.href = 'projects.html';
+        }, 500);
+      } else {
+        passwordError.textContent = 'Incorrect password. Try again.';
+        passwordInput.value = '';
+      }
+    }
+
+    // Check if already unlocked in this session
+    if (sessionStorage.getItem('project4Unlocked') === 'true') {
+      passwordScreen.classList.add('hidden');
+      // Redirect to Figma prototype
+      window.open(figmaURL, '_blank');
+      // Redirect back to projects
+      setTimeout(() => {
+        window.location.href = 'projects.html';
+      }, 500);
+    }
+
+    passwordSubmit.addEventListener('click', handlePasswordSubmit);
+    passwordInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        handlePasswordSubmit();
+      }
+    });
+
+    // Focus on password input
+    passwordInput.focus();
+  </script>
+</body>
+</html>

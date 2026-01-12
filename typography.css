@@ -64,6 +64,14 @@
   text-transform: uppercase;
 }
 
+.section-header {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 14px;
+  line-height: auto;
+  letter-spacing: 0.08em;
+  font-weight: 400;
+}
+
 .body-2 {
   font-family: 'Hanken Grotesk', sans-serif;
   font-size: 14px;
