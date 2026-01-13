@@ -102,14 +102,14 @@ a {
 
 @media (max-width: 752px) {
   .side-nav {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
     width: 100%;
     max-width: 424px;
     height: auto;
-    padding: 68px 0 20px 0;
+    padding: 68px 20px 20px 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -120,6 +120,8 @@ a {
     background-color: var(--white-1);
     z-index: 1000;
     margin-bottom: 24px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .side-nav a {
@@ -133,7 +135,7 @@ a {
   body {
     padding-left: 0;
     --body-top-padding: 0;
-    padding-top: 108px !important;
+    padding-top: 0 !important;
   }
 }
 
@@ -193,9 +195,9 @@ a {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: auto;
-    padding: 68px 40px 20px 40px;
+    padding: 68px 20px 20px 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -653,7 +655,13 @@ a {
   padding-right: 100px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
+  .outcomes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
   .outcomes-grid {
     grid-template-columns: 1fr;
   }
@@ -789,6 +797,8 @@ a {
     transform: none; /* remove left shift on mobile when nav is not fixed */
     gap: 48px; /* equal row and column gaps */
     max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
     grid-template-columns: 1fr; /* single column on mobile */
   }
 }
@@ -821,6 +831,12 @@ a {
   align-items: stretch;
 }
 
+@media (max-width: 752px) {
+  .project-card {
+    max-width: 424px;
+  }
+}
+
 /* (removed duplicate/projects-specific hard min/max block) */
 
 .project-title {
@@ -851,7 +867,7 @@ a {
   object-fit: cover;
   object-position: center;
   background-color: var(--card-background-primary);
-  border: none;
+  border: 1px solid var(--stroke-2);
   border-radius: var(--number-4);
   box-shadow: none;
   transition: none;

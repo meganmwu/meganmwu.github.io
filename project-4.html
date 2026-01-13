@@ -13,6 +13,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    /* Remove border for project-4 redirect page */
+    .page-background-dark .overview-column.primary {
+      border-right: none;
+    }
+  </style>
 </head>
 
 <body class="page-background-dark">
@@ -37,8 +43,8 @@
         <div class="overview-grid">
           <div class="overview-column primary">
             <div class="primary-content-section">
-              <h1 class="title-1" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 36px;">Redirecting to Figma prototype...</h1>
-              <p class="body-1-light">If you are not automatically redirected, <a href="https://www.figma.com/proto/ipDfpexcZjTvfDnzYnk7vb/02_Portfolio_Alliance-Bernstein-Case-Study?node-id=3-101&starting-point-node-id=3%3A101" target="_blank" style="text-decoration: underline; color: var(--foreground-content-primary-on-dark);">click here</a>.</p>
+              <h1 class="subtitle" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 36px;">Redirecting to project...</h1>
+              <p class="body-1-light">If you are not automatically redirected, <a href="https://www.figma.com/proto/ipDfpexcZjTvfDnzYnk7vb/02_Portfolio_Alliance-Bernstein-Case-Study?node-id=3-101&starting-point-node-id=3%3A101&scaling=contain&content-scaling=fixed" target="_blank" style="text-decoration: underline; color: var(--foreground-content-primary-on-dark);">click here</a>.</p>
             </div>
           </div>
         </div>
@@ -62,34 +68,26 @@
     const passwordInput = document.getElementById('password-input');
     const passwordSubmit = document.getElementById('password-submit');
     const passwordError = document.getElementById('password-error');
-    const figmaURL = 'https://www.figma.com/proto/ipDfpexcZjTvfDnzYnk7vb/02_Portfolio_Alliance-Bernstein-Case-Study?node-id=3-101&starting-point-node-id=3%3A101';
+    const figmaURL = 'https://www.figma.com/proto/ipDfpexcZjTvfDnzYnk7vb/02_Portfolio_Alliance-Bernstein-Case-Study?node-id=3-101&starting-point-node-id=3%3A101&scaling=contain&content-scaling=fixed';
 
     function handlePasswordSubmit() {
       const enteredPassword = passwordInput.value;
       if (enteredPassword === correctPassword) {
         passwordScreen.classList.add('hidden');
-        sessionStorage.setItem('project4Unlocked', 'true');
+        localStorage.setItem('project4Unlocked', 'true');
         // Redirect to Figma prototype in a new tab
         window.open(figmaURL, '_blank');
-        // Optionally redirect the current tab back to projects
-        setTimeout(() => {
-          window.location.href = 'projects.html';
-        }, 500);
       } else {
         passwordError.textContent = 'Incorrect password. Try again.';
         passwordInput.value = '';
       }
     }
 
-    // Check if already unlocked in this session
-    if (sessionStorage.getItem('project4Unlocked') === 'true') {
+    // Check if already unlocked
+    if (localStorage.getItem('project4Unlocked') === 'true') {
       passwordScreen.classList.add('hidden');
       // Redirect to Figma prototype
       window.open(figmaURL, '_blank');
-      // Redirect back to projects
-      setTimeout(() => {
-        window.location.href = 'projects.html';
-      }, 500);
     }
 
     passwordSubmit.addEventListener('click', handlePasswordSubmit);

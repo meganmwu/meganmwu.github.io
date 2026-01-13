@@ -13,6 +13,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    @media (max-width: 752px) {
+      .opportunities-grid {
+        display: grid;
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
 </head>
 
 <body class="page-background-dark">
@@ -585,7 +593,7 @@
         <h2 class="case-study-title title-1">Opportunities</h2>
         <p class="body-2-light" style="color: var(--foreground-content-secondary-on-dark); margin-bottom: 48px;">Opportunities to improve Bing Places for Business, post MVP.</p>
         
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 48px;">
+        <div class="opportunities-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 48px;">
           <div>
             <h3 class="body-1" style="color: var(--foreground-content-primary-on-dark); margin-bottom: 16px;">Boost product awareness</h3>
             <p class="body-2-light" style="color: var(--foreground-content-secondary-on-dark);">4 out of 5 usability participants were not aware of Bing Places for Business before study, and the initial research had also pointed to lack of product awareness. There are opportunities to emphasize claiming or managing a listing by proactively notifying business owners to claim their businesses.</p>

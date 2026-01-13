@@ -10,6 +10,7 @@
     --grey-75: rgba(0, 0, 0, 0.75);
     --grey-60: rgba(0, 0, 0, 0.6);
     --grey-10: rgba(0, 0, 0, 0.1);
+    --grey-1: rgba(0, 0, 0, 0.01);
     --card-background-primary: #D8D8D8;
   /* Greys */
     --white-100: rgb(255, 255, 255);
@@ -51,6 +52,7 @@
     --foreground-content-tertiary: var(--grey-75);
     --foreground-content-quaternary: var(--grey-60);
     --stroke-default: var(--grey-10);
+    --stroke-2: var(--grey-1);
     --card-bg: var(--card-background-primary);
   /* On dark background variants */
     --foreground-content-primary-on-dark: var(--white-100);
