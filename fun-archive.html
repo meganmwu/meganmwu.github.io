@@ -24,7 +24,7 @@
 
   <div class="content-page-with-nav-offset fun-page-container">
     <main class="content-section">
-      <h1 class="title-2">Fun</h1>
+      <p class="body-1" style="text-align: center; color: var(--foreground-content-secondary); margin: var(--space-lg) 0;">A recent page that I tinkered with after learning how to vibe code. I'm impressed by Ai's ability to create fun, interactive experiences, making it easier to make any weird, silly experience that you dream up into a reality! This didn't make it onto my portfolio but was quick and fun to make</p>
       
       <button id="pause-button" class="pause-button" title="Hold to pause and reveal">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,11 +68,14 @@
     // Pause state
     let isPaused = false;
     const pauseButton = document.getElementById('pause-button');
+    
+    // Calculate minimum Y position to avoid text (approximately 300px for the text area)
+    const minY = 300;
 
     // Initialize positions and velocities for each image
     images.forEach((img, index) => {
       const x = Math.random() * (window.innerWidth - 230);
-      const y = Math.random() * (window.innerHeight - 230);
+      const y = Math.random() * (window.innerHeight - 230 - minY) + minY;
       const vx = (Math.random() - 0.5) * 4;
       const vy = (Math.random() - 0.5) * 4;
       
@@ -145,9 +148,9 @@
           velocities[index].vx *= -1;
           positions[index].x = Math.max(0, Math.min(window.innerWidth - 230, positions[index].x));
         }
-        if (positions[index].y <= 0 || positions[index].y >= window.innerHeight - 230) {
+        if (positions[index].y <= minY || positions[index].y >= window.innerHeight - 230) {
           velocities[index].vy *= -1;
-          positions[index].y = Math.max(0, Math.min(window.innerHeight - 230, positions[index].y));
+          positions[index].y = Math.max(minY, Math.min(window.innerHeight - 230, positions[index].y));
         }
 
         img.style.left = positions[index].x + 'px';
